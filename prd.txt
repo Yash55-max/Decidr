@@ -1,0 +1,97 @@
+📘 PRODUCT REQUIREMENTS DOCUMENT (PRD)
+🧾 1. Product Overview
+
+Product Name: AI Decision Intelligence Platform
+Goal: Help users make data-driven decisions using ML predictions + AI reasoning + analytics.
+
+🎯 Target Users:
+Students (career decisions)
+Job seekers
+Early professionals
+Founders / side-project builders
+❗ Problem Statement
+
+People make decisions based on:
+
+emotions
+incomplete data
+bias
+
+👉 There is no system that combines:
+
+data analysis
+ML prediction
+logical reasoning
+
+in one place.
+
+💡 Solution
+
+A platform where users input decisions and get:
+
+probability-based outcomes
+risk analysis
+logical reasoning
+visual insights
+🚀 Core Features
+1. Decision Input Module
+
+User provides:
+
+Title (e.g., “Placement vs Startup”)
+Options (A, B, C)
+Constraints:
+Time
+Money
+Skills
+Optional dataset upload (CSV)
+2. Data Analysis Engine
+Clean and preprocess dataset
+Generate:
+Summary stats
+Correlations
+Trends
+3. ML Prediction Engine
+Predict:
+Success probability
+Risk score
+Models:
+Logistic Regression
+Random Forest
+4. AI Reasoning Engine
+Explain results in human language
+Detect:
+Bias
+Emotional leaning
+Provide:
+Trade-offs
+Recommendation
+5. Visualization Dashboard
+Charts:
+Bar (option comparison)
+Line (trend)
+Pie (risk distribution)
+6. Decision Report Generator
+Final output:
+Summary
+Recommendation
+Key risks
+Suggested action plan
+7. Decision History
+Save past decisions
+Compare:
+predicted vs actual outcome
+📊 Success Metrics
+User engagement (decisions created/session)
+Accuracy of predictions
+User retention
+Time spent per decision
+🔐 Non-Functional Requirements
+Response time < 3 seconds
+Secure file upload
+Scalable backend
+Clean UI/UX
+🚧 Constraints
+Limited real-world datasets initially
+ML accuracy depends on input quality
+LLM cost constraints
