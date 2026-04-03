@@ -14,8 +14,8 @@ class DecisionRecord(Base):
     __tablename__ = "decisions"
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
-    options = Column(JSON) # e.g. ["A", "B"]
-    constraints = Column(JSON) # e.g. {"Time": 10, "Budget": 100}
+    options = Column(JSON) 
+    constraints = Column(JSON) 
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
 
 class AnalysisResult(Base):
