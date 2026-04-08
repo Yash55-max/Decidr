@@ -1,12 +1,8 @@
 @import "tailwindcss";
-
-@font-face {
-  font-family: 'Inter';
-  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @theme {
-  --color-primary-50: #ecfdf5;
+  --color-primary-50:  #ecfdf5;
   --color-primary-100: #d1fae5;
   --color-primary-200: #a7f3d0;
   --color-primary-300: #6ee7b7;
@@ -18,15 +14,109 @@
   --color-primary-900: #064e3b;
 }
 
+/* ───────────────────────────────── Base ────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   @apply bg-neutral-900 text-neutral-100 antialiased;
+  overflow-x: hidden;
 }
 
+/* ───────────────────────────── Glass card ──────────────────────────────── */
 .glass {
   @apply bg-neutral-800/60 backdrop-blur-md border border-neutral-700/50 rounded-2xl shadow-xl;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.glass:hover {
+  @apply border-neutral-600/60;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
 }
 
+/* ───────────────────────────── Gradients ───────────────────────────────── */
 .primary-gradient {
   @apply bg-gradient-to-br from-primary-500 to-primary-700;
 }
+.gem-gradient {
+  background: linear-gradient(135deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%);
+}
+
+/* ─────────────────────────── Scrollbar ────────────────────────────────── */
+.custom-scrollbar::-webkit-scrollbar       { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { @apply bg-neutral-700 rounded-full; }
+
+/* ──────────────────────── Animated gradient text ──────────────────────── */
+.animated-gradient-text {
+  background: linear-gradient(270deg, #10b981, #3b82f6, #8b5cf6, #10b981);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradShift 6s ease infinite;
+}
+@keyframes gradShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* ────────────────────────── Pulse ring ─────────────────────────────────── */
+.pulse-ring {
+  animation: pulseRing 2s ease-out infinite;
+}
+@keyframes pulseRing {
+  0%   { transform: scale(0.9); opacity: 0.8; }
+  70%  { transform: scale(1.1); opacity: 0;   }
+  100% { transform: scale(0.9); opacity: 0;   }
+}
+
+/* ────────────────────── Loading skeleton shimmer ──────────────────────── */
+.shimmer {
+  background: linear-gradient(90deg, #262626 25%, #333 50%, #262626 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ──────────────────── Confidence bar animation ─────────────────────────── */
+.confidence-fill {
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─────────────────────── Sidebar tooltip ──────────────────────────────── */
+.nav-tooltip {
+  @apply absolute left-full ml-3 px-3 py-1.5 bg-neutral-800 border border-neutral-700 rounded-lg text-xs font-medium whitespace-nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.nav-item:hover .nav-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ──────────────────────── Star rating ─────────────────────────────────── */
+.star-btn {
+  cursor: pointer;
+  color: #404040;
+  transition: color 0.15s, transform 0.15s;
+}
+.star-btn:hover,
+.star-btn.active {
+  color: #f59e0b;
+  transform: scale(1.15);
+}
+
+/* ───────────────────────── Input focus glow ────────────────────────────── */
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+}
+
+/* ─────────────────────── Mono font helper ──────────────────────────────── */
+.font-mono { font-family: 'JetBrains Mono', monospace; }
